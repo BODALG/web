@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="anillos.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invitación de Boda</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(to bottom, #fdf6ec, #c2a471);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .sobre-container {
+      width: 90vw;
+      max-width: 350px;
+      aspect-ratio: 3 / 2;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+      transition: transform 0.3s;
+    }
+
+    .sobre-container:hover {
+      transform: scale(1.03);
+    }
+
+    .sobre {
+      width: 100%;
+      height: 100%;
+      background: #d2b48c;
+      border: 3px solid #8b5a2b;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .tapa {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #8b5a2b;
+      transform-origin: top center;
+      transition: transform 1.5s ease-in-out;
+      z-index: 2;
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+    }
+
+    .carta-dentro {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 70%;
+      background: #fffaf0;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mensaje {
+      text-align: center;
+      font-size: 1rem;
+      padding: 10px;
+      color: #5b4321;
+    }
+
+    .abrir .tapa {
+      transform: rotateX(180deg);
+    }
+
+    @media (min-width: 768px) {
+      .mensaje {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor del sobre -->
+  <div class="sobre-container" id="sobre">
+    <div class="sobre">
+      <div class="tapa"></div>
+      <div class="carta-dentro">
+        <div class="mensaje">Haz clic para abrir tu invitación</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sonido del sobre -->
+  <audio id="sonidoPapel" src="papel.mp3" preload="auto"></audio>
+
+  <script>
+    const sobre = document.getElementById('sobre');
+    const sonido = document.getElementById('sonidoPapel');
+
+    sobre.addEventListener('click', () => {
+      // Activar animación
+      sobre.classList.add('abrir');
+
+      // Reproducir sonido del sobre
+      sonido.currentTime = 0;
+      sonido.play();
+
+      // Redirigir a la invitación después de la animación
+      setTimeout(() => {
+        window.location.href = 'invitacion.html';
+      }, 1600);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(#e6d3b3, #c2a676);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  /* Contenedor principal */
+  .invitacion {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    border: 4px solid #8b5a2b;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: aparecer 2s ease forwards;
+  }
+  
+  /* Imagen de los novios - animación inicial */
+  .imagen-novios {
+    width: 45%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s ease;
+  }
+  
+  /* Imagen de las argollas - animación inicial */
+  .imagen-anillos {
+    width: 80px;
+    margin: 20px auto;
+    display: block;
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+    transition: all 1s ease;
+  }
+  
+  /* Clases activadas por JS */
+  .animar-novios {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .animar-anillos {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  
+  /* Título con efecto brillante */
+  #nombres {
+    font-size: 2.5rem;
+    color: #fff8dc;
+    text-shadow: 0 0 5px #fff8dc, 0 0 10px #ffd700;
+    animation: brillo 2s infinite alternate;
+    margin-bottom: 20px;
+  }
+  
+  /* Efecto máquina de escribir */
+  .maquina-escribir {
+    font-size: 1.2rem;
+    color: #5b4321;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #5b4321;
+    width: 0;
+    animation: escribir 4s steps(40, end) forwards;
+  }
+  
+  @keyframes escribir {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Animación de aparición general */
+  @keyframes aparecer {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animación de brillo */
+  @keyframes brillo {
+    0% { text-shadow: 0 0 5px #fff8dc; }
+    100% { text-shadow: 0 0 15px #ffd700, 0 0 20px #fff; }
+  }
+  
+  /* Botones */
+  .boton {
+    display: inline-block;
+    margin: 20px 10px;
+    padding: 12px 24px;
+    background: #8b5a2b;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .boton:hover {
+    background: #a9703f;
+    transform: scale(1.05);
+  }
+  
+  /* Sección historia */
+  .historia {
+    margin-top: 30px;
+    background: #fef9f3;
+    padding: 15px;
+    border-radius: 10px;
+    color: #5b4321;
+  }
+  
+  /* Botón ubicación */
+  .ubicacion {
+    background-color: #6b4226;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .invitacion {
+      padding: 20px;
+    }
+  
+    #nombres {
+      font-size: 2rem;
+    }
+  
+    .maquina-escribir {
+      font-size: 1rem;
+    }
+  
+    .imagen-novios {
+      max-height: 180px;
+    }
+  }
+  
