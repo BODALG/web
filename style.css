@@ -25,7 +25,7 @@ body {
   
   /* Imagen de los novios - animación inicial */
   .imagen-novios {
-    width: 40%;
+    width: 35%;
     max-height: 250px;
     object-fit: cover;
     border-radius: 10px;
